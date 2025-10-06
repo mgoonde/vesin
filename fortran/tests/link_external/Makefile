@@ -9,6 +9,7 @@ OBJ := Obj
 ## name of output library
 LIBNAME := libvv.so
 
+## vesin paths we need
 VESIN_PATH    := $(abspath ../../../)
 VESIN_BUILD   := $(VESIN_PATH)/build
 VESIN_LIBPATH := $(VESIN_PATH)/lib
@@ -16,6 +17,8 @@ VESIN_INCLUDE := $(VESIN_BUILD)/fortran/include
 
 
 FLAGS := -O0 -cpp -ldl -fPIC -ffree-line-length-none
+
+## put .mod files into $(OBJ)
 MOD := $(FC_MODOUT)$(OBJ) $(FC_MODINC)$(OBJ)
 
 # "external" libs and modules
@@ -48,7 +51,7 @@ vesin: #vesin_submod
 	@cd ${VESIN_PATH} && cmake --build ${VESIN_BUILD}
 	@cd ${VESIN_PATH} && cmake --install ${VESIN_BUILD}
 
-
+## compile $(LIBNAME)
 lib: $(mod_o) $(base_o)
 	$(MPIF90) $(MOD) $(EXT_MOD) -fPIC -shared -o $(LIBNAME) $^ $(EXT_LIB)
 

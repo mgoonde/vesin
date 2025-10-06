@@ -1,0 +1,5 @@
+compile with
+```bash
+make
+```
+
