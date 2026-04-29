@@ -151,6 +151,9 @@ Installation
             # or use fetch_content
             FetchContent_xxx(...)
 
+            # link to vesin_fortran, it also needs lstdc++
+            target_link_libraries(your-fortran-target vesin_fortran stdc++)
+
 
     .. tab-item:: |logo-c| |logo-cxx| Single file
 
