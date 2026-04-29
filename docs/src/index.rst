@@ -151,6 +151,9 @@ Installation
             # or use fetch_content
             FetchContent_xxx(...)
 
+            # link to vesin_fortran
+            target_link_libraries(your-fortran-target vesin_fortran)
+
 
     .. tab-item:: |logo-c| |logo-cxx| Single file
 
